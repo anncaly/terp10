@@ -1,8 +1,18 @@
 - var URL = "http://terp10.spbstu.ru"
 doctype html
 html(lang="ru")
-    head
-        include ./template/head.pug
-    body
-        include ./template/about.pug
-        include ./template/scripts.pug
+  head
+    include ./template/head.pug
+  body
+    include ./template/header.pug
+    include ./template/about.pug
+    include ./template/testimonials.pug
+    include ./template/program.pug
+    include ./template/students.pug
+    include ./template/price.pug
+    include ./template/registration.pug
+    include ./template/questions.pug
+    include ./template/contacts.pug
+    main
+      include ./template/footer.pug
+      include ./template/scripts.pug

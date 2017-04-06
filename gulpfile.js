@@ -5,6 +5,7 @@ const pug            = require('gulp-pug');
 const mainBowerFiles = require('main-bower-files');
 const clean          = require('gulp-clean');
 const html2pug       = require('gulp-html2pug');
+const sass           = require('gulp-sass');
 
 var paths = {
     scss:['./src/scss/main.scss'],
@@ -55,6 +56,14 @@ gulp.task('js', function(done) {
     done(); 
 });
 
+gulp.task('sass', function(done) {
+    return gulp.src('src/scss/**/*.scss')
+        .pipe(sass())
+        // .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(gulp.dest('build/css'));
+done();
+});
+
 gulp.task('pug', function(done) {
     gulp.src('src/index.pug')
         .pipe(pug({
@@ -76,6 +85,6 @@ gulp.task('pug:watch', function() {
 //    gulp.watch(paths.scss, gulp.series('scss'));
 });
 
-gulp.task('build', gulp.series('clean', 'pug', 'fonts', 'js', function(done) {
+gulp.task('build', gulp.series('clean', 'pug', 'sass', 'fonts', 'js', function(done) {
     done();
 }));

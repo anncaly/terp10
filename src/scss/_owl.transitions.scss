@@ -1,0 +1,137 @@
+/* 
+ *  Owl Carousel CSS3 Transitions 
+ *  v1.3.2
+ */
+
+.owl-origin {
+    @include perspective-origin(50% 50%);
+    @include perspective(1200px);
+}
+
+/* fade */
+.owl-fade-out {
+    z-index: 10;
+    @include animation(fadeOut 0.7s both ease);
+}
+
+.owl-fade-in {
+    @include animation(fadeIn 0.7s both ease);
+}
+
+/* backSlide */
+.owl-backSlide-out {
+    @include animation(backSlideOut 1s both ease);
+}
+
+.owl-backSlide-in {
+    @include animation(backSlideIn 1s both ease);
+}
+
+/* goDown */
+.owl-goDown-out {
+    @include animation(scaleToFade 0.7s ease both);
+}
+
+.owl-goDown-in {
+    @include animation(goDown 0.6s ease both);
+}
+
+/* scaleUp */
+.owl-fadeUp-in {
+    @include animation(scaleUpFrom 0.5s ease both);
+}
+
+.owl-fadeUp-out {
+    @include animation(scaleUpTo 0.5s ease both);
+}
+
+/* Keyframes */
+/*empty*/
+@include keyframes(empty) {
+    0% {
+        opacity: 1;
+    }
+}
+
+
+@include keyframes(fadeIn) {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@include keyframes(fadeOut) {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@include keyframes(backSlideOut) {
+    25% {
+        opacity: .5;
+        @include transform(translateZ(-500px));
+    }
+    75% {
+        opacity: .5;
+        @include transform(translateZ(-500px) translateX(-200%));
+    }
+    100% {
+        opacity: .5;
+        @include transform(translateZ(-500px) translateX(-200%));
+    }
+}
+
+
+@include keyframes(backSlideIn) {
+    0%, 25% {
+        opacity: .5;
+        @include transform(translateZ(-500px) translateX(200%));
+    }
+    75% {
+        opacity: .5;
+        @include transform(translateZ(-500px));
+    }
+    100% {
+        opacity: 1;
+        @include transform(translateZ(0) translateX(0));
+    }
+}
+
+
+@include keyframes(scaleToFade) {
+    to {
+        opacity: 0;
+        @include transform(scale(0.8));
+    }
+}
+
+
+@include keyframes(goDown) {
+    from {
+        @include transform(translateY(-100%));
+    }
+}
+
+
+@include keyframes(scaleUpFrom) {
+    from {
+        opacity: 0;
+        @include transform(scale(1.5));
+    }
+}
+
+
+@include keyframes(scaleUpTo) {
+    to {
+        opacity: 0;
+        @include transform(scale(1.5));
+    }
+}
